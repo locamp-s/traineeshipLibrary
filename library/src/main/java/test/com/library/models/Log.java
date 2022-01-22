@@ -1,47 +1,34 @@
 package test.com.library.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "log")
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "user_id")
+    private int userId;
+
+    @Column(name = "book_id")
+    private int bookId;
+
+    @Column(name = "data_start")
     private String dataStart;
+
+    @Column(name = "data_return")
     private String dataReturn;
 
-    public Log(int id, String dataStart, String dataReturn) {
-        this.id = id;
-        this.dataStart = dataStart;
-        this.dataReturn = dataReturn;
-    }
-
-    public Log() {
-
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDataStart() {
-        return dataStart;
-    }
-
-    public void setDataStart(String dataStart) {
-        this.dataStart = dataStart;
-    }
-
-    public String getDataReturn() {
-        return dataReturn;
-    }
-
-    public void setDataReturn(String dataReturn) {
-        this.dataReturn = dataReturn;
-    }
 }
+

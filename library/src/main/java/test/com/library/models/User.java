@@ -1,56 +1,37 @@
 package test.com.library.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "full_name")
     private String fullName;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "contact")
     private String contact;
 
-    protected User() {}
+    @Column(name = "role_id")
+    private String roleId;
 
-    public User(String fullName, String email, String contact) {
-        this.fullName = fullName;
-        this.email = email;
-        this.contact = contact;
-    }
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String full_name) {
-        this.fullName = full_name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
 }
