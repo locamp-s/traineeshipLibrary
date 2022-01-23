@@ -29,6 +29,5 @@ public class Log {
 
     @Column(name = "data_return")
     private String dataReturn;
-
 }
 

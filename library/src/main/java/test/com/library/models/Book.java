@@ -1,5 +1,6 @@
 package test.com.library.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,12 +26,16 @@ public class Book {
     @Column(name = "title")
     private String title;
 
-
     @Column(name = "isbn")
     private String isbn;
 
     @Column(name = "status")
     private String status;
+
+    @JsonProperty("log")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id", referencedColumnName = "book_id")
+    private Log log;
 
 }
 

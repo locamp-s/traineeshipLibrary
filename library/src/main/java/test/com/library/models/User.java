@@ -1,5 +1,6 @@
 package test.com.library.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,4 +35,14 @@ public class User {
     @Column(name = "role_id")
     private String roleId;
 
+    @JsonProperty("log")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private Log log;
+
+
+    @JsonProperty("role")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private Role role;
 }
