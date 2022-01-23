@@ -1,6 +1,7 @@
 package test.com.library.controller;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
 import test.com.library.models.Book;
 import test.com.library.service.BookService;
 
@@ -14,6 +15,12 @@ public class MainController {
 
     public MainController(BookService bookService) {
         this.bookService = bookService;
+    }
+
+
+    @GetMapping("/api/hello")
+    public String hello(){
+        return "Highload";
     }
 
     @GetMapping("/books")
